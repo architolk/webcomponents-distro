@@ -1,0 +1,154 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <h2>Details</h2>
+    <div id="root"></div>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <script  type="text/javascript" src="dwslib.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script>
+const endpoint = 'https://geonovum.github.io/NEN3610-Linkeddata/dataset/nen3610.json';
+const resourceIri = dwslib.DataFactory.namedNode('http://geonovum.github.io/NEN3610-Linkeddata/dataset/nen3610');
+
+const rows = [
+  {
+    predicate: dwslib.DataFactory.namedNode('http://www.w3.org/2000/01/rdf-schema#label'),
+    label: 'Label',
+  },
+  {
+    predicate: dwslib.DataFactory.namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+    label: 'Type',
+  },
+  {
+    predicate: dwslib.DataFactory.namedNode('http://www.w3.org/2004/02/skos/core#prefLabel'),
+    label: 'Term',
+  },
+  {
+    predicate: dwslib.DataFactory.namedNode('http://www.w3.org/2004/02/skos/core#altLabel'),
+    label: 'Synoniemen',
+  },
+  {
+    predicate: dwslib.DataFactory.namedNode('http://www.w3.org/2000/01/rdf-schema#comment'),
+    label: 'Uitleg',
+  },
+  {
+    predicate: dwslib.DataFactory.namedNode('http://www.w3.org/2004/02/skos/core#definition'),
+    label: 'Definitie',
+  },
+  {
+    predicate: dwslib.DataFactory.namedNode('http://www.w3.org/2004/02/skos/core#scopeNote'),
+    label: 'Toelichting',
+  },
+  {
+    predicate: dwslib.DataFactory.namedNode('http://purl.org/dc/terms/source'),
+    label: 'Bron',
+  },
+  {
+    predicate: dwslib.DataFactory.namedNode('http://www.w3.org/2004/02/skos/core#inScheme'),
+    label: 'Domein',
+  },
+  {
+    predicate: dwslib.DataFactory.namedNode('http://purl.org/iso25964/skos-thes#broaderGeneric'),
+    label: 'is specialisatie van',
+  },
+  {
+    predicate: dwslib.DataFactory.namedNode('http://purl.org/iso25964/skos-thes#narrowerGeneric'),
+    label: 'is generalisatie van',
+  },
+  {
+    predicate: dwslib.DataFactory.namedNode('http://purl.org/iso25964/skos-thes#broaderPartitive'),
+    label: 'is onderdeel van',
+  },
+  {
+    predicate: dwslib.DataFactory.namedNode('http://purl.org/iso25964/skos-thes#narrowerPartitive'),
+    label: 'bestaat uit',
+  },
+  {
+    predicate: dwslib.DataFactory.namedNode('http://www.w3.org/2004/02/skos/core#semanticRelation'),
+    label: 'heeft betrekking op',
+  },
+  {
+    predicate: dwslib.DataFactory.namedNode('http://www.w3.org/2004/02/skos/core#closeMatch'),
+    label: 'is ongeveer hetzelfde als (extern concept)',
+  },
+  {
+    predicate: dwslib.DataFactory.namedNode('http://www.w3.org/2004/02/skos/core#exactMatch'),
+    label: 'is hetzelfde als (extern concept)',
+  },
+  {
+    predicate: dwslib.DataFactory.namedNode('http://www.w3.org/2004/02/skos/core#relatedMatch'),
+    label: 'zie ook (extern concept)',
+  },
+  {
+    predicate: dwslib.DataFactory.namedNode('http://www.w3.org/2004/02/skos/core#broadMatch'),
+    label: 'is breder dan (extern concept)',
+  },
+  {
+    predicate: dwslib.DataFactory.namedNode('http://www.w3.org/2004/02/skos/core#narrowMatch'),
+    label: 'is enger dan (extern concept)',
+  },
+  {
+    predicate: dwslib.DataFactory.namedNode('http://xmlns.com/foaf/0.1/isPrimaryTopicOf'),
+    label: 'Metadata',
+  },
+];
+
+const metadataRows = [
+  {
+    predicate: dwslib.DataFactory.namedNode('http://www.w3.org/ns/adms#status'),
+    label: 'Status',
+  },
+  {
+    predicate: dwslib.DataFactory.namedNode('http://dublincore.org/documents/2006/04/10/dcmi-period/start'),
+    label: 'Start',
+  },
+  {
+    predicate: dwslib.DataFactory.namedNode('http://dublincore.org/documents/2006/04/10/dcmi-period/end'),
+    label: 'End',
+  },
+  {
+    predicate: dwslib.DataFactory.namedNode('http://www.w3.org/ns/prov#generatedAtTime'),
+    label: 'Startdatum versie',
+  },
+  {
+    predicate: dwslib.DataFactory.namedNode('http://www.w3.org/ns/prov#invalidatedAtTime'),
+    label: 'Einddatum versie',
+  },
+  {
+    predicate: dwslib.DataFactory.namedNode('http://www.w3.org/ns/prov#wasRevisionOf'),
+    label: 'Revisie van',
+  },
+  {
+    predicate: dwslib.DataFactory.namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+    label: 'Type',
+  },
+  {
+    predicate: dwslib.DataFactory.namedNode('http://www.w3.org/ns/prov#wasAttributedTo'),
+    label: 'Toegeschreven aan',
+  },
+  {
+    predicate: dwslib.DataFactory.namedNode('http://www.w3.org/2004/02/skos/core#changeNote'),
+    label: 'Toelichting wijziging',
+  },
+  {
+    predicate: dwslib.DataFactory.namedNode('http://purl.org/dc/terms/issued'),
+    label: 'Gepubliceerd',
+  },
+];
+
+   dwslib.webcomponents.graphContext(endpoint)
+    .then((store) => {
+       dwslib.webcomponents.renderComponent(
+        document.getElementById('root'),
+         dwslib.webcomponents.Resource,
+        {
+          store,
+          resourceIri,
+          rows,
+        },
+      );
+    });
+    </script>
+  </body>
+ </html>
